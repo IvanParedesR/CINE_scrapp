@@ -1,4 +1,6 @@
-#Web scraping IMDB with rvest
+#rvest es un nuevo paquete que facilita el raspado (o la recolección) de datos de páginas web html, inspirado en bibliotecas como la hermosa sopa . Está diseñado para trabajar con magrittr para que pueda expresar operaciones complejas como tuberías elegantes compuestas de piezas simples y fáciles de entender. Instalarlo con:
+
+install.packages("rvest")
 
 library("rvest")
 library("XML")
