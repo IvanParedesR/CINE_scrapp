@@ -17,6 +17,13 @@ movie.link = paste0("http://www.imdb.com",movie.link)
 movie.cast = sapply(html_attrs(movie.nodes),`[[`,'title')
 movie.name = html_text(movie.nodes)
 
+#html_nodes(x, css, xpath)
+#html_node(x, css, xpath)
+
+#Arguments
+#x Either a document, a node set or a single node.
+#css, xpath Nodes to select. Supply one of css or xpath depending on whether you want to use a CSS or XPath 1.0 selector.
+
 sec <- html_nodes(page,'.secondaryInfo')
 
 year = as.numeric(gsub(")","",                          # Removing )
