@@ -1,4 +1,5 @@
-#rvest es un nuevo paquete que facilita el raspado (o la recolección) de datos de páginas web html, inspirado en bibliotecas como la hermosa sopa . Está diseñado para trabajar con magrittr para que pueda expresar operaciones complejas como tuberías elegantes compuestas de piezas simples y fáciles de entender. Instalarlo con:
+
+#rvest es un paquete que facilita el raspado (o la recolección) de datos de páginas web html, inspirado en bibliotecas como la hermosa sopa . Está diseñado para trabajar con magrittr para que pueda expresar operaciones complejas como tuberías elegantes compuestas de piezas simples y fáciles de entender. Instalarlo con:
 
 install.packages("rvest")
 
@@ -7,7 +8,6 @@ library("XML")
 library("xml2")
 
 url = "http://www.imdb.com/chart/top?ref_=nv_wl_img_3"
-
 page = read_html(url)
 
 movie.nodes <- html_nodes(page,'.titleColumn a')
