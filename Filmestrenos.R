@@ -1,4 +1,4 @@
-#rvest es un paquete que facilita el raspado (o la recolección) de datos de páginas web html, inspirado en bibliotecas como la hermosa sopa . Está diseñado para trabajar con magrittr para que pueda expresar operaciones complejas como tuberías elegantes compuestas de piezas simples y fáciles de entender. Instalarlo con:
+#rvest es un paquete que facilita el raspado (o la recolecci?n) de datos de p?ginas web html, inspirado en bibliotecas como la hermosa sopa . Est? dise?ado para trabajar con magrittr para que pueda expresar operaciones complejas como tuber?as elegantes compuestas de piezas simples y f?ciles de entender. Instalarlo con:
 #install.packages("rvest")
 
 #Paquetenes necesarios
@@ -7,35 +7,45 @@ library("XML")
 library("xml2")
 library(magrittr, lib.loc = "C:/Users/iparedes/Documents/R/R-3.6.2/library")
 
-#The html_nodes() function turns each HTML tag into a row in an R dataframe.
+#The basic functions in rvest are powerful, and you should try to utilize the following functions when starting out a new project.
+
+# html_nodes(): identifies HTML wrappers.
+# html_nodes(".class"): calls node based on css class
+# html_nodes("#id"): calls node based on <div> id
+# html_nodes(xpath="xpath"): calls node based on xpath (weâ€™ll cover this later)
+# html_attrs(): identifies attributes (useful for debugging)
+# html_table(): turns HTML tables into data frames
+# html_text(): strips the HTML tags and extracts only the text
+
+#The html_nodes() vuelve los datos de la pÃ¡gina en un dataframe.
 url = "https://www.filmaffinity.com/mx/rdcat.php?id=upc_th_mx"
 film1 = read_html(url)
 
-#This grabs all the nodes that have links in them.
-film1 %>%
+#Todo lo que tenga un enlace lo saca.
+film2 <- film1 %>%
   html_nodes("a") %>%
   head()
 
 #Every div on the page:
-film1 %>%
+film3 <- film1 %>%
   html_nodes("div") %>%
   head()
 
 #the nav-tools div. This calls by css where class=nav-tools.
 
-film1 %>%
+film4 <- film1 %>%
   html_nodes("div.nav-tools") %>%
   head()
 
 #We can call the nodes by id as follows.
 
-film1 %>%
+film5 <- film1 %>%
   html_nodes("div#project-listing") %>%
   head()
 
 #All the tables as follows:
 
-film1 %>%
+film6 <- film1 %>%
   html_nodes("table") %>%
   head()
 
