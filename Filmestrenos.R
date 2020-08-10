@@ -26,6 +26,7 @@ film2 <- film1 %>%
   html_nodes("a") %>%
   head()
 
+
 #Every div on the page:
 film3 <- film1 %>%
   html_nodes("div") %>%
